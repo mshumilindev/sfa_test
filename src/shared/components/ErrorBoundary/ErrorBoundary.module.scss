@@ -1,0 +1,32 @@
+.boundary {
+  background: var(--color-error-surface);
+  border: 1px solid var(--color-error-border);
+  border-radius: var(--radius-2);
+  color: var(--color-error-text);
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-4) auto;
+  max-width: 40rem;
+  padding: var(--space-4);
+}
+
+.boundary h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.boundary p {
+  margin: 0;
+}
+
+.reloadButton {
+  background: var(--color-primary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-2);
+  color: var(--color-on-primary);
+  cursor: pointer;
+  font-weight: 800;
+  justify-self: start;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+}
