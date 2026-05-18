@@ -1,0 +1,133 @@
+.select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  min-height: 2.9rem;
+  min-width: 0;
+  padding: 0.75rem 0.85rem;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.eligibilityHint {
+  border-radius: var(--radius-2);
+  border: 1px solid var(--color-border);
+  padding: var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.eligibilityTitle {
+  font-size: 1rem;
+  margin: 0 0 var(--space-2);
+}
+
+.eligible {
+  background: var(--color-success-surface);
+  border-color: var(--color-success-border);
+  color: var(--color-success-text);
+}
+
+.notEligible {
+  background: var(--color-error-surface);
+  border-color: var(--color-error-border);
+  color: var(--color-error-text);
+}
+
+.verificationRequired {
+  background: var(--color-warning-surface);
+  border-color: var(--color-warning-border);
+  color: var(--color-warning-text);
+}
+
+.summaryCard {
+  background: var(--color-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2);
+  margin: 0 auto;
+  max-width: 54rem;
+  overflow: hidden;
+  padding: var(--space-4);
+  width: 100%;
+}
+
+.summaryCard h2 {
+  margin: 0 0 var(--space-3);
+}
+
+.summaryList {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  min-width: 0;
+}
+
+.summaryList div {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.summaryList dt {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.summaryList dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.termsField {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.successPanel {
+  background: var(--color-soft);
+  border: 1px solid var(--color-primary-soft-border);
+  border-radius: var(--radius-2);
+  padding: var(--space-4);
+}
+
+.successPanel h2 {
+  margin: 0 0 var(--space-2);
+}
+
+.successPanel p {
+  color: var(--color-muted);
+  margin: 0 0 var(--space-4);
+}
+
+.successLink {
+  align-items: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-2);
+  color: var(--color-on-primary);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
