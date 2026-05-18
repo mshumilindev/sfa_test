@@ -2,6 +2,7 @@
 
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 
+import { reportRenderError } from '@/shared/errors/errorReporter';
 import { sharedMessages } from '@/shared/i18n/sharedMessages';
 
 import styles from './ErrorBoundary.module.scss';
@@ -23,8 +24,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     return { hasError: true };
   }
 
-  componentDidCatch(_error: Error, _errorInfo: ErrorInfo): void {
-    // Errors are surfaced through the fallback UI; avoid logging candidate data.
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    reportRenderError(error, errorInfo);
   }
 
   private handleReload = (): void => {

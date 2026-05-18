@@ -9,6 +9,7 @@ const config = {
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
+    '!src/**/*.stories.tsx',
     '!src/app/**/layout.tsx',
     '!src/app/**/page.tsx',
     '!src/**/test-utils/**',

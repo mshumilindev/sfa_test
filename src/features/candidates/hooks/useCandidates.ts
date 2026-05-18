@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
+import { useMemo } from 'react';
 
 import {
   checkEmailAvailability,
@@ -71,13 +72,20 @@ export const useCandidates = (
     },
   );
 
-  const filtered = filterCandidates(data?.candidates ?? [], filters);
-  const sorted = sortCandidates(filtered, filters.sort);
-  const start = (filters.page - 1) * candidatePageSize;
+  const { candidates, total } = useMemo(() => {
+    const filtered = filterCandidates(data?.candidates ?? [], filters);
+    const sorted = sortCandidates(filtered, filters.sort);
+    const start = (filters.page - 1) * candidatePageSize;
+
+    return {
+      candidates: sorted.slice(start, start + candidatePageSize),
+      total: filtered.length,
+    };
+  }, [data?.candidates, filters]);
 
   return {
-    candidates: sorted.slice(start, start + candidatePageSize),
-    total: filtered.length,
+    candidates,
+    total,
     isLoading,
     isError: Boolean(error),
     hasListData: Boolean(data),

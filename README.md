@@ -22,20 +22,22 @@ The app runs at `http://localhost:3000`. Route `/` redirects into the candidate 
 
 ## Scripts
 
-| Script                  | Purpose                                               |
-| ----------------------- | ----------------------------------------------------- |
-| `npm run dev`           | Start the development server                          |
-| `npm run build`         | Production build                                      |
-| `npm run start`         | Start the production server                           |
-| `npm run lint`          | Run ESLint (`eslint .`)                               |
-| `npm run typecheck`     | Run TypeScript without emitting files                 |
-| `npm run test`          | Run Jest tests                                        |
-| `npm run test:coverage` | Run Jest with enforced 90% coverage thresholds        |
-| `npm run test:watch`    | Run Jest in watch mode                                |
-| `npm run test:e2e`      | Run Playwright E2E and axe smoke tests                |
-| `npm run test:e2e:a11y` | Run axe accessibility specs only                      |
-| `npm run format`        | Format with Prettier                                  |
-| `npm run validate`      | Typecheck, lint, coverage tests, and production build |
+| Script                    | Purpose                                               |
+| ------------------------- | ----------------------------------------------------- |
+| `npm run dev`             | Start the development server                          |
+| `npm run build`           | Production build                                      |
+| `npm run start`           | Start the production server                           |
+| `npm run lint`            | Run ESLint (`eslint .`)                               |
+| `npm run typecheck`       | Run TypeScript without emitting files                 |
+| `npm run test`            | Run Jest tests                                        |
+| `npm run test:coverage`   | Run Jest with enforced 90% coverage thresholds        |
+| `npm run test:watch`      | Run Jest in watch mode                                |
+| `npm run test:e2e`        | Run Playwright E2E and axe smoke tests                |
+| `npm run test:e2e:a11y`   | Run axe accessibility specs only                      |
+| `npm run storybook`       | Start Storybook for core component states             |
+| `npm run build-storybook` | Build the static Storybook bundle                     |
+| `npm run format`          | Format with Prettier                                  |
+| `npm run validate`        | Typecheck, lint, coverage tests, and production build |
 
 ## Routes
 
@@ -120,6 +122,7 @@ Further detail: [`src/features/candidates/README.md`](./src/features/candidates/
 - Toast live regions; top-level `ErrorBoundary` for render failures
 - Layouts exercised at **320px**, **768px**, and **1200px** (Playwright)
 - axe on `/candidates` and `/candidates/register` (serious/critical fail the run)
+- Dark mode uses CSS custom properties and follows the user's system color scheme
 
 ## Internationalization
 
@@ -138,21 +141,29 @@ npm run test:e2e
 
 E2E covers SSR first paint, dashboard filter/sort/pagination/retry, full registration, duplicate-email block before submit, field validation, responsive layouts, and axe. `test:e2e:a11y` is a subset of `test:e2e`.
 
+**Storybook** documents core component states for form input autocomplete, status badges, empty states, eligibility hints, and registration summary. The toolbar can force light, dark, or system theme:
+
+```bash
+npm run storybook
+npm run build-storybook
+```
+
 **Full gate before release or review:**
 
 ```bash
 npm run validate
 npm audit --audit-level=moderate
 npm run test:e2e
+npm run build-storybook
 ```
 
-`npm audit --audit-level=moderate` passes with safe overrides in `package.json` (`postcss@^8.5.10`, `@tootallnate/once@^3.0.1`); see [DECISIONS.md](./DECISIONS.md) if advisories change.
+`npm audit --audit-level=moderate` exits successfully. Storybook currently reports low-severity dev-only transitive advisories; see [DECISIONS.md](./DECISIONS.md) before using `npm audit fix --force`.
 
 ## Known trade-offs
 
 - Mock data does not persist across dev-server restarts
 - Level II/III eligibility is indicative only (prior exam history is not collected)
-- Shared UI primitives are lightweight, not a full design system
+- Shared UI primitives are documented in Storybook but remain lightweight, not a full design system
 - Lighthouse is optional manual verification (not in `npm run validate`):
 
 ```bash
