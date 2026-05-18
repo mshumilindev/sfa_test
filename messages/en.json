@@ -1,0 +1,210 @@
+{
+  "app": {
+    "title": "BERT Candidate Registration Portal",
+    "description": "Frontend-only candidate registration portal for modernization assessment."
+  },
+  "common": {
+    "actions": {
+      "back": "Back",
+      "close": "Close",
+      "continue": "Continue",
+      "submit": "Submit",
+      "previous": "Previous",
+      "next": "Next",
+      "processing": "Processing...",
+      "submitting": "Submitting...",
+      "retry": "Try again"
+    },
+    "feedback": {
+      "dismissNotification": "Dismiss notification",
+      "notifications": "Notifications",
+      "unexpectedErrorTitle": "Something went wrong",
+      "unexpectedErrorBody": "The page hit an unexpected error. Reload the page or return to the dashboard and try again.",
+      "reloadPage": "Reload page"
+    },
+    "loading": {
+      "defaultLabel": "Loading content"
+    }
+  },
+  "api": {
+    "feedback": {
+      "candidatesLoadError": "The candidate list could not be loaded. Refresh the page or try again in a moment.",
+      "registrationSubmitError": "Registration could not be submitted. Review your entries and try again.",
+      "registrationSubmitSuccess": "{candidateName} was registered successfully.",
+      "networkTimeout": "The request took too long. Check your connection and try submitting again.",
+      "unexpectedError": "Something unexpected happened. Please try again, or refresh the page if the issue continues."
+    }
+  },
+  "candidates": {
+    "api": {
+      "invalidRegistrationPayload": "Invalid registration payload.",
+      "invalidJson": "The request body must be valid JSON.",
+      "invalidExamWindow": "Select a valid preferred exam window.",
+      "duplicateEmail": "This email is already registered."
+    },
+    "labels": {
+      "program": {
+        "level_1": "Level I",
+        "level_2": "Level II",
+        "level_3": "Level III"
+      },
+      "degree": {
+        "bachelor": "Bachelor",
+        "master": "Master",
+        "phd": "PhD",
+        "other": "Other"
+      },
+      "status": {
+        "pending": "Pending",
+        "eligible": "Eligible",
+        "ineligible": "Ineligible",
+        "withdrawn": "Withdrawn"
+      }
+    },
+    "filters": {
+      "allPrograms": "All programs",
+      "allStatuses": "All statuses",
+      "sort": {
+        "registrationDateDesc": "Registration date (newest)",
+        "registrationDateAsc": "Registration date (oldest)",
+        "nameAsc": "Name (A–Z)",
+        "nameDesc": "Name (Z–A)"
+      }
+    },
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "country": "Country of residence",
+      "highestDegree": "Highest degree",
+      "universityName": "University name",
+      "graduationYear": "Graduation year",
+      "yearsOfProfessionalExperience": "Years of professional experience",
+      "currentEmployer": "Current employer",
+      "program": "Program level",
+      "preferredExamWindow": "Preferred exam window",
+      "acceptsTerms": "Terms and conditions"
+    },
+    "validation": {
+      "nameMin": "{label} must be at least 2 characters.",
+      "nameMax": "{label} must be at most 50 characters.",
+      "invalidEmail": "Enter a valid email address.",
+      "invalidPhone": "Enter a valid international phone number (e.g. +48123123123).",
+      "countryRequired": "Select a country of residence.",
+      "countryInvalid": "Select a valid country.",
+      "graduationYearInvalid": "Enter a valid graduation year.",
+      "experienceWholeYears": "Use whole years.",
+      "experienceNegative": "Experience cannot be negative.",
+      "experienceMax": "Experience must be 50 years or less.",
+      "graduationYearRange": "Graduation year must be between {minYear} and {maxYear}.",
+      "universityRequired": "University name is required when a degree is selected.",
+      "examWindowRequired": "Select a preferred exam window.",
+      "termsRequired": "You must accept the terms and conditions.",
+      "graduationYearHint": "Enter a year between {minYear} and {maxYear}."
+    },
+    "dashboard": {
+      "title": "Candidate Dashboard",
+      "description": "Review registrations and filter by name, program, or status.",
+      "registerLink": "Register New Candidate",
+      "nameLabel": "Name",
+      "programLabel": "Program",
+      "statusLabel": "Status",
+      "sortLabel": "Sort by",
+      "searchPlaceholder": "Search by candidate name",
+      "emptyState": "No candidates match the current filters.",
+      "loadError": "The candidate list could not be loaded. Refresh the page or try again in a moment.",
+      "loadingLabel": "Loading candidate registrations",
+      "paginationLabel": "Candidate pagination",
+      "pageStatus": "Page {page} of {pageCount}",
+      "table": {
+        "caption": "Candidate registrations",
+        "name": "Name",
+        "email": "Email",
+        "program": "Program",
+        "status": "Status",
+        "registrationDate": "Registration Date",
+        "sortName": "Sort by name",
+        "sortRegistrationDate": "Sort by registration date"
+      },
+      "cardListLabel": "Candidate registrations"
+    },
+    "registration": {
+      "pageDescription": "Register a new candidate through the guided three-step form.",
+      "stepsLabel": "Registration steps",
+      "stepErrorSummary": "Review the highlighted fields before continuing.",
+      "emailAlreadyRegistered": "This email is already registered.",
+      "emailChecking": "Checking email availability...",
+      "backToDashboard": "Back to dashboard",
+      "submitRegistration": "Submit registration",
+      "successTitle": "Registration submitted",
+      "successBody": "{candidateName} was registered successfully. The candidate will appear on the dashboard.",
+      "returnToDashboard": "Return to dashboard",
+      "examWindowPlaceholder": "Select an exam window",
+      "examWindowNotSelected": "Not selected",
+      "termsLabel": "I accept the terms and conditions for candidate registration and exam scheduling.",
+      "phoneHint": "Optional. Use international format, e.g. +48123123123.",
+      "optionalHint": "Optional.",
+      "experienceYears": "{years} years",
+      "steps": [
+        {
+          "title": "Personal Information",
+          "description": "Identify the candidate and confirm primary contact details.",
+          "fields": ["firstName", "lastName", "email", "phone", "country"]
+        },
+        {
+          "title": "Education & Experience",
+          "description": "Capture academic background and professional experience.",
+          "fields": [
+            "highestDegree",
+            "universityName",
+            "graduationYear",
+            "yearsOfProfessionalExperience",
+            "currentEmployer"
+          ]
+        },
+        {
+          "title": "Program Selection & Review",
+          "description": "Choose a program level, review your entries, and submit.",
+          "fields": ["program", "preferredExamWindow", "acceptsTerms"]
+        }
+      ],
+      "summary": {
+        "title": "Registration summary",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "country": "Country",
+        "highestDegree": "Highest degree",
+        "university": "University",
+        "graduationYear": "Graduation year",
+        "experience": "Professional experience",
+        "employer": "Current employer",
+        "program": "Program level",
+        "examWindow": "Preferred exam window"
+      }
+    },
+    "combobox": {
+      "searchPlaceholder": "Search countries",
+      "emptyResults": "No countries match your search."
+    },
+    "eligibility": {
+      "level2": {
+        "title": "Level II eligibility",
+        "message": "A prior Level I pass within the last 5 years is required. Additional verification is required because this form does not collect prior exam history."
+      },
+      "level3": {
+        "title": "Level III eligibility",
+        "message": "A prior Level II pass within the last 5 years is required. Additional verification is required because this form does not collect prior exam history."
+      },
+      "level1Eligible": {
+        "title": "Likely eligible for Level I",
+        "message": "Based on the education and experience entered, this candidate appears eligible for Level I. Final eligibility is confirmed after review."
+      },
+      "level1NotEligible": {
+        "title": "Not likely eligible for Level I",
+        "message": "Level I typically requires a Bachelor, Master, or PhD degree, or at least 4 years of professional experience."
+      }
+    }
+  }
+}
